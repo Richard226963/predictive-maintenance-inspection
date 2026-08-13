@@ -1,0 +1,82 @@
+{
+  "map50": 0.3589534433614166,
+  "map": 0.17275232138639685,
+  "precision": 0.5128731060466452,
+  "recall": 0.35890744606819763,
+  "per_class_ap50": [
+    0.5321620405244876,
+    0.18574484619834566
+  ],
+  "model": "yolov8m.pt with overfitting detection (best.pt loaded)",
+  "epochs_trained": 16,
+  "overfitting_detected": true,
+  "stop_reason": "OVERFITTING at epoch 16: train loss 5.090 -> 4.994 (decreasing), val loss 5.642 -> 5.661 (increasing)",
+  "per_class_names": [
+    "corrosion",
+    "crack"
+  ],
+  "target_met": false,
+  "all_rounds": [
+    {
+      "model": "yolov8n.pt with overfitting detection (best.pt loaded)",
+      "map50": 0.06985795259508881,
+      "map": 0.028142055870451526,
+      "precision": 0.6124105081207947,
+      "recall": 0.10855949895615867,
+      "per_class_ap50": [
+        0.13231994049913096,
+        0.007395964691046659
+      ],
+      "epochs_trained": 4,
+      "overfitting_detected": true,
+      "stop_reason": "OVERFITTING at epoch 4: train loss 7.344 -> 6.920 (decreasing), val loss 8.489 -> 9.909 (increasing)"
+    },
+    {
+      "model": "yolov8s.pt with overfitting detection (best.pt loaded)",
+      "map50": 0.09511021816458927,
+      "map": 0.03667601327057511,
+      "precision": 0.6471501543921835,
+      "recall": 0.12839248434237996,
+      "per_class_ap50": [
+        0.1874575497312404,
+        0.0027628865979381447
+      ],
+      "epochs_trained": 4,
+      "overfitting_detected": true,
+      "stop_reason": "OVERFITTING at epoch 4: train loss 7.024 -> 6.648 (decreasing), val loss 10.033 -> 12.490 (increasing)"
+    },
+    {
+      "model": "yolov8m.pt with overfitting detection (best.pt loaded)",
+      "map50": 0.3589534433614166,
+      "map": 0.17275232138639685,
+      "precision": 0.5128731060466452,
+      "recall": 0.35890744606819763,
+      "per_class_ap50": [
+        0.5321620405244876,
+        0.18574484619834566
+      ],
+      "epochs_trained": 16,
+      "overfitting_detected": true,
+      "stop_reason": "OVERFITTING at epoch 16: train loss 5.090 -> 4.994 (decreasing), val loss 5.642 -> 5.661 (increasing)"
+    }
+  ],
+  "n_train": 354,
+  "n_val": 76,
+  "n_test": 77,
+  "anti_overfitting": {
+    "method": "callback-based overfitting detection + best.pt loading",
+    "label_smoothing": 0.1,
+    "dropout": 0.2,
+    "weight_decay": 0.0005,
+    "optimizer": "AdamW",
+    "lr0": 0.001,
+    "augmentation": "mosaic, mixup, HSV, rotation, scale, translate",
+    "overfitting_detection": "custom on_fit_epoch_end callback checks train vs val loss every epoch",
+    "stop_conditions": [
+      "val loss increasing AND train loss decreasing (classic overfitting)",
+      "val loss increasing for 2+ consecutive epochs",
+      "mAP not improving for 15 epochs (YOLOv8 built-in patience)"
+    ],
+    "model_selection": "ALWAYS loads best.pt (best validation mAP epoch), never last.pt"
+  }
+}
