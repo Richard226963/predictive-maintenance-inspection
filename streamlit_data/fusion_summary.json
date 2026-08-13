@@ -1,0 +1,13 @@
+{
+  "n_sites": 150,
+  "priority_distribution": {
+    "LOW": 109,
+    "HIGH": 41
+  },
+  "high_priority_precision": 1.0,
+  "target_met": true,
+  "total_cost_usd": 143500.0,
+  "total_downtime_prevented_hours": 738.0,
+  "downtime_cost_avoided_usd": 1845000.0,
+  "roi_multiple": 11.857142857142858
+}
